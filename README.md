@@ -27,7 +27,7 @@
 | category_id        | integer    | null: false                    | #商品カテゴリー
 | condition_id       | integer    | null: false                    | #商品状態
 | delivery_fee_id    | integer    | null: false                    | #送料の有無
-| shipment_source_id | integer    | null: false                    | #発送元
+| prefecture_id      | integer    | null: false                    | #発送元
 | delivery_days_id   | integer    | null: false                    | #発送日の目安
 
 ### Association
@@ -61,12 +61,12 @@
 | Column                | Type       | Options                        |
 | --------------------  | ---------- | ------------------------------ |
 | purchase              | references | null: false, foreign_key: true |
-| postcode              | integer    | null: false                    | #郵便番号
+| postcode              | string     | null: false                    | #郵便番号
 | prefecture_id         | integer    | null: false                    | #都道府県
 | municipalities        | string     | null: false                    | #市町村区
 | address               | string     | null: false                    | #番地
 | building_name         | string     |                                | #建物名
-| phone_number          | integer    | null: false                    | #電話番号 
+| phone_number          | string     | null: false                    | #電話番号 
 
 ## Association
 belongs_to :purchase
