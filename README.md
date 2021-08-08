@@ -28,7 +28,7 @@
 | condition_id       | integer    | null: false                    | #商品状態
 | delivery_fee_id    | integer    | null: false                    | #送料の有無
 | prefecture_id      | integer    | null: false                    | #発送元
-| delivery_days_id   | integer    | null: false                    | #発送日の目安
+| delivery_day_id    | integer    | null: false                    | #発送日の目安
 
 ### Association
 - belongs_to :user
