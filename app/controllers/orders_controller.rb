@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :redirect_root, only: [:index]
+  before_action :redirect_root, only: [:index, :create]
+  
   def index
-    @item = Item.find(params[:item_id])
     @order_adress = OrderAdress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_adress = OrderAdress.new(order_adress_params)
     if @order_adress.valid?
       pay_time

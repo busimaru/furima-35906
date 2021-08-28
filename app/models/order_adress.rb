@@ -9,6 +9,8 @@ class OrderAdress
     validates :address
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is number only' }, length: { in: 10..11 }
     validates :token
+    validates :item_id
+    validates :user_id
   end
 
   def save
