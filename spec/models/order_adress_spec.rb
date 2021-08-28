@@ -47,7 +47,7 @@ RSpec.describe OrderAdress, type: :model do
     it '電話番号が空欄では登録できない' do
       @order_adress.phone_number = ''
       @order_adress.valid?
-      expect(@order_adress.errors.full_messages).to include("Phone number can't be blank", 'Phone number is number only')
+      expect(@order_adress.errors.full_messages).to include("Phone number can't be blank")
     end
     it '電話番号は半角数字以外では登録できない' do
       @order_adress.phone_number = 'abcdefg1'
