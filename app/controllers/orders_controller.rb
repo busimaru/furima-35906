@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :redirect_root, only: [:index]
   def index
     @item = Item.find(params[:item_id])
     @order_adress = OrderAdress.new
@@ -28,5 +29,10 @@ class OrdersController < ApplicationController
       card: order_adress_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+
+  def redirect_root
+    @item = Item.find(params[:item_id])
+    redirect_to root_url unless (user_signed_in? && current_user.id != @item.user_id && Order.find_by(item_id: @item.id) == nil)
   end
 end
