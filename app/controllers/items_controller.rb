@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @item.destroy
     redirect_to root_path
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def redirect_index
-    redirect_to action: :index unless current_user.id == @item.user_id
+    redirect_to action: :index unless current_user.id == @item.user_id && Order.find_by(item_id: @item.id).nil?
   end
 end

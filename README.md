@@ -32,7 +32,7 @@
 
 ### Association
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
 ＃商品カテゴリー、商品状態、送料の有無、発送元、発送日の目安はプルダウン形式で実装
 
@@ -46,7 +46,7 @@
 - belongs_to    :user
 - belongs_to    :item
 
-## purchase テーブル
+## orders テーブル
 | Column                | Type       | Options                        |
 | --------------------  | ---------- | ------------------------------ |
 | user                  | references | null: false, foreign_key: true |
@@ -60,7 +60,7 @@
 ## address テーブル
 | Column                | Type       | Options                        |
 | --------------------  | ---------- | ------------------------------ |
-| purchase              | references | null: false, foreign_key: true |
+| order                 | references | null: false, foreign_key: true |
 | postcode              | string     | null: false                    | #郵便番号
 | prefecture_id         | integer    | null: false                    | #都道府県
 | municipalities        | string     | null: false                    | #市町村区
@@ -69,6 +69,6 @@
 | phone_number          | string     | null: false                    | #電話番号 
 
 ## Association
-belongs_to :purchase
+belongs_to :order
 
 ＃都道府県はプルダウン形式で実装
