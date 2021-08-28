@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('created_at DESC')
+    @order = Order.all
   end
 
   def new
@@ -51,6 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def redirect_index
-    redirect_to action: :index unless current_user.id == @item.user_id
+    redirect_to action: :index unless (current_user.id == @item.user_id && Order.find_by(item_id: @item.id) == nil)
   end
 end

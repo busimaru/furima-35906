@@ -32,7 +32,7 @@
 
 ### Association
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
 ＃商品カテゴリー、商品状態、送料の有無、発送元、発送日の目安はプルダウン形式で実装
 
